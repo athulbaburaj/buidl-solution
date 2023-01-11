@@ -263,19 +263,19 @@ body {
 .layout:first-child .block {
   margin-bottom: 0;
 }
-@media screen and (min-width: 40em) {
-  .layout--twocol-section.layout--twocol-section--25-75
-    > .layout__region--first,
-  .layout--twocol-section.layout--twocol-section--75-25
-    > .layout__region--second {
-    flex: 0 1 30%;
-  }
-  .layout--twocol-section.layout--twocol-section--25-75
-    > .layout__region--second,
-  .layout--twocol-section.layout--twocol-section--75-25
-    > .layout__region--first {
-    flex: 0 1 69%;
-  }
+.layout-center {
+  display: flex;
+  justify-content: center; /* centers the elements horizontally */
+  align-items: center; /* centers the elements vertically */
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.layout__region--first {
+
+  margin: auto;
+  padding: 12px;
 }
 .entity-header {
   display: flex;
@@ -315,27 +315,71 @@ body {
   padding: 5px;
   border-radius: 4px;
 }
-.highlighted-box {
-  background: rgba(21, 128, 61, 0.1);
-  border-radius: 5px;
-  text-align: left;
-  padding: 18px 24px 2px;
+/* Mobile styles */
+@media only screen and (max-width: 600px) {
+  .highlighted-box {
+    background: rgba(21, 128, 61, 0.1);
+    padding: 12px;
+    width: 49%;
+    border-radius: 2px;
+    text-align: center;
+    float:left;
+  }
+  /* added styles for the line */
+  .highlighted-box::after{
+    content:'';
+    width: 1px;
+    height: 100%;
+    background-color: #000;
+    float:left;
+    margin: 0px 12px;
+  }
+  .highlighted-box:last-child::after{
+    display: none;
+  }
+  .highlighted-box .label {
+    font-family: "gilroy-regular";
+    color: #000;
+    font-size: 10px;
+    margin: 0 0 12px 0;
+    padding: 0;
+  }
+  .highlighted-box .box-content {
+    margin-bottom: 12px;
+  }
+  .highlighted-box.box-green .label {
+    color: #15803d;
+  }
+  .highlighted-box.box-green .big-txt {
+    color: #15803d;
+    margin-bottom: 15px;
+  }
 }
-.highlighted-box .label {
-  font-family: "gilroy-regular";
-  color: #000;
-  margin: 0 0 22px 0;
-  padding: 0;
-}
-.highlighted-box .box-content {
-  margin-bottom: 24px;
-}
-.highlighted-box.box-green .label {
-  color: #15803d;
-}
-.highlighted-box.box-green .big-txt {
-  color: #15803d;
-  margin-bottom: 15px;
+
+/* Large screen styles */
+@media only screen and (min-width: 600px) {
+  .highlighted-box {
+    background: rgba(21, 128, 61, 0.1);
+    border-radius: 5px;
+    text-align: left;
+    padding: 18px 24px 2px;
+  }
+  .highlighted-box .label {
+    font-family: "gilroy-regular";
+    color: #000;
+    margin: 0 0 22px 0;
+    padding: 0;
+  }
+  .highlighted-box .box-content {
+    margin-bottom: 24px;
+  }
+  .highlighted-box.box-green .label {
+    color: #15803d;
+  }
+  .highlighted-box.box-green .big-txt {
+    color: #15803d;
+    margin-bottom: 15px;
+  }
 }
 .highlighted-box.box-red {
   background: rgba(239, 68, 68, 0.1);
@@ -1411,4 +1455,90 @@ body {
 }
 .finalists-no-results-text {
   text-align: center;
+}
+
+/*addition to css*/
+.heading {
+  font-size: 30px;
+  margin-bottom: 16px;
+}
+
+.subheading {
+  font-size: 60px;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.description-writing{
+  font-family: "gilroy-medium";
+  padding:20px;
+}
+
+body{margin-top:20px;align-items: center;}
+.section_padding_130 {
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.faq_area {
+    position: relative;
+    z-index: 1;
+    background-color: #f5f5ff;
+}
+
+.faq-accordian {
+    position: relative;
+    z-index: 1;
+}
+.faq-accordian .card {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1.5rem;
+}
+.faq-accordian .card:last-child {
+    margin-bottom: 0;
+}
+.faq-accordian .card .card-header {
+    background-color: #ffffff;
+    padding: 0;
+    border-bottom-color: #ebebeb;
+}
+.faq-accordian .card .card-header h6 {
+    cursor: pointer;
+    padding: 1.75rem 2rem;
+    color: #3f43fd;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.faq-accordian .card .card-header h6 span {
+    font-size: 1.5rem;
+}
+.faq-accordian .card .card-header h6.collapsed {
+    color: #070a57;
+}
+.faq-accordian .card .card-header h6.collapsed span {
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+}
+.faq-accordian .card .card-body {
+    padding: 1.75rem 2rem;
+}
+.faq-accordian .card .card-body p:last-child {
+    margin-bottom: 0;
+}
+
+.container{
+  align-items: center;
 }
